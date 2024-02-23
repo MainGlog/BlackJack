@@ -1,0 +1,21 @@
+﻿@page "/counter" 
+<!--This is what is appended to the page-->
+<PageTitle>Counter</PageTitle> 
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p> <!-- current count renders the value of currentCount-->
+<!--at symbol refers to a C# member-->
+<button class="btn btn-primary" @onclick="IncrementCount"> <!--Method () not needed because it's an event-->
+    Increment Counter
+</button> 
+<!--any event refreshes screen-->
+<button class="btn btn-primary" @onclick="() => currentCount--"> 
+    <!--() is anonymous method, then you can chain it into a => and do whatever for simple things-->
+    Decrement Counter
+</button>
+
+<button class="btn btn-secondary" @onclick="() => currentCount = 0">
+    Reset Counter
+</button>
+<!--HOT RELOAD will save time, fire emblem thing at the top if changes are made while program is running-->

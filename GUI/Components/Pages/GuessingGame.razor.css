@@ -1,0 +1,5 @@
+﻿.error-message {
+    color: var(--bs-danger);
+    /*Variables in css are referenced by var, variables always start with --*/
+    /*You have to refresh while holding shift if making changes to a css file*/
+}

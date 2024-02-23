@@ -1,0 +1,36 @@
+﻿@page "/GuessingGame"
+<PageTitle>Guessing Game</PageTitle>
+<!--Pages are just special components-->
+<h1>Guessing Game</h1>
+
+<p>Try to guess the number between 1 and @MAX_NUMBER</p>
+
+<p>You have @GuessesLeft guesses left.</p>
+
+<form @onsubmit="Guess"> <!--fires guess method on submission-->
+    <label for="guess">Your Guess: </label>
+    <input id="guess" type="number" disabled="@InputDisabled" @bind="UsersGuess"/> <!--Disables it if inputdisabled is true-->
+    <!--binds input to the UsersGuess variable-->
+    <button type="submit" disabled="@InputDisabled">Check</button> <!--Submits all info for input tags when button is clicked-->
+    <!--Form is collection of info that's sent to the server when submitted-->
+    
+</form>
+
+@if(InputDisabled)
+{
+    <h4 style="color: @(gameWon ? "green" : "red");">@GameStateMessage</h4>
+    <button @onclick="Reset">Play again</button>
+    <button @onclick="GoHome">Go Home</button>
+}
+
+<!--Styles always end with a semicolon-->
+<div class="error-message">@ErrorMessage</div>
+
+<div class="messages">
+    @for(int i = 0; i < Messages.Count; i++)
+    {
+        <p>Guess @(i + 1): @Messages[i] </p>
+    }
+</div>
+
+
